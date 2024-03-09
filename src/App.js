@@ -1,10 +1,17 @@
 import React from 'react';
 import Weather from './Components/Weather';
 import LocationBar from './Components/LocationBar';
+import "./App.css"
 const App = () => {
   return (
-    <div>
-      <h1>Weather Forecast App</h1>
+    <div style = {{
+        height: "100%",
+        width: "100%",
+        backgroundImage:
+        'url("/Assets/Background.png")',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+      }}>
       <LocationBar/>
       <Weather />
     </div>
