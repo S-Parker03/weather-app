@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import '../Weather.css';
 const Weather = () => {
     const [city, setCity] = useState('');
     const [weatherData, setWeatherData] = useState(null);
@@ -27,37 +28,41 @@ const Weather = () => {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Enter city name"
-                    value={city}
-                    onChange={handleInputChange}
-                />
-                <button type="submit">Get Weather</button>
-            </form>
-            {weatherData ? (
-                <>
-                <h2>{weatherData.name}</h2>
-                    <section className='temperature'>
-                        <p>Temperature: {weatherData.main.temp}°C</p>
-                        <p>Description: {weatherData.weather[0].description}</p>
-                        <p>Feels like : {weatherData.main.feels_like}°C</p>
-                    </section>
-                    <section className='wind'>
-                        <p>Wind Speed : {weatherData.wind.speed}m/s</p>
-                    </section>
-                    <section className='general'>
-                        <p>Humidity : {weatherData.main.humidity}%</p>
-                        <p>Pressure : {weatherData.main.pressure}</p>
-                    </section>
-                    <section className='waves'></section>
-                    
-                </>
-            ) : (
-                <p>Loading weather data...</p>
-            )}
+        <div className="all">
+            <div className="loc">
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        placeholder="Enter city name"
+                        value={city}
+                        onChange={handleInputChange}
+                    />
+                    <button type="submit">Get Weather</button>
+                </form>
+            </div>
+            <div className="weather">
+                {weatherData ? (
+                    <>
+                        <h2>{weatherData.name}</h2>
+                        <section className='temperature'>
+                            <p>Temperature</p><div className="data"><p>{weatherData.main.temp}°C</p></div>
+                            <p>Feels Like</p><div className="data"><p>{weatherData.main.feels_like}°C</p></div>
+                            <p>Weather</p><div className="data"><p>{weatherData.weather[0].description}</p></div>
+                        </section>
+                        <section className='wind'>
+                        <p>Wind Speed</p><p>{weatherData.wind.speed}m/s</p>
+                        </section>
+                        <section className='general'>
+                            <p>Humidity</p><p>{weatherData.main.humidity}%</p>
+                            <p>Pressure</p><p>{weatherData.main.pressure}</p>
+                        </section>
+                        <section className='waves'></section>
+
+                    </>
+                ) : (
+                    <p>Loading weather data...</p>
+                )}
+            </div>
         </div>
     );
 };
