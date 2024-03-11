@@ -4,6 +4,7 @@ import LocationBar from './Components/LocationBar';
 import Waves from './Components/Waves';
 import "./App.css"
 import"./Mobile.css"
+import"./Desktop.css"
 import { useState, useEffect } from 'react';
 const App = () => {
   var [background, setBackground] = useState();
