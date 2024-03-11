@@ -1,11 +1,13 @@
 import React from 'react';
 import Weather from './Components/Weather';
 import LocationBar from './Components/LocationBar';
+import Waves from './Components/Waves';
 import "./App.css"
+import"./Mobile.css"
 const App = () => {
   return (
     <div style = {{
-        height: "100%",
+        height: "1000px",
         width: "100%",
         backgroundImage:
         'url("/Assets/Background.png")',
@@ -14,6 +16,7 @@ const App = () => {
       }}>
       <LocationBar/>
       <Weather />
+      <Waves />
     </div>
   );
 };
