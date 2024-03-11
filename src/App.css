@@ -1,9 +1,3 @@
-html{
-  background-Image: "/Assets/Background.png";
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 
 .navBar{
   position: sticky;
@@ -16,4 +10,59 @@ html{
   justify-content: space-evenly;
   font-family: "Montserrat", sans-serif;
   top: 0px;
+}
+
+.weather{
+  display: grid;
+
+}
+
+.waves{
+  width: 100%;
+  position: fixed;
+  top: 85vh;
+
+}
+
+.backgroundWave{
+  width: 100%;
+  position: fixed;
+  top: 80vh;
+}
+
+
+.morning{
+  height: "100vh";
+  width: "100%";
+  background-Image:
+  url("/Assets/BackgroundSunset.png");
+  background-Size: 'cover';
+  background-Repeat: 'no-repeat';
+}
+
+.evening{
+  height: "100vh";
+  width: "100%";
+  background-Image:
+  url("/Assets/BackgroundSunset.png");
+  background-Size: 'cover';
+  background-Repeat: 'no-repeat';
+}
+
+.night{
+  height: "100vh";
+  width: "100%";
+  background-Image:
+  url("/Assets/BackgroundNight.png");
+  background-Size: 'cover';
+  background-Repeat: 'no-repeat';
+}
+
+.day{
+  height: "100vh";
+  width: "100%";
+  background-Image:
+  url("/Assets/BackgroundDefault.png");
+  background-Size: 'cover';
+  background-Repeat: 'no-repeat';
 }

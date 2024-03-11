@@ -55,7 +55,12 @@ const Weather = () => {
                             <p>Humidity</p><p>{weatherData.main.humidity}%</p>
                             <p>Pressure</p><p>{weatherData.main.pressure}</p>
                         </section>
-                        <section className='waves'></section>
+                        <section className='waves'>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                        </section>
 
                     </>
                 ) : (
