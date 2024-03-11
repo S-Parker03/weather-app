@@ -32,37 +32,37 @@
 
 
 .morning{
-  height: "100vh";
-  width: "100%";
+  height: 100vh;
+  width: 100%;
   background-Image:
   url("/Assets/BackgroundSunset.png");
-  background-Size: 'cover';
-  background-Repeat: 'no-repeat';
+  background-size: 100%;
+  background-repeat: 'no-repeat';
 }
 
 .evening{
-  height: "100vh";
-  width: "100%";
+  height: 100vh;
+  width: 100%;
   background-Image:
   url("/Assets/BackgroundSunset.png");
-  background-Size: 'cover';
-  background-Repeat: 'no-repeat';
+  background-size: cover;
+  background-repeat: 'no-repeat';
 }
 
 .night{
-  height: "100vh";
-  width: "100%";
+  height: 100vh;
+  width: 100%;
   background-Image:
   url("/Assets/BackgroundNight.png");
-  background-Size: 'cover';
-  background-Repeat: 'no-repeat';
+  background-size: cover;
+  background-repeat: 'no-repeat';
 }
 
 .day{
-  height: "100vh";
-  width: "100%";
+  height: 100vh;
+  width: 100%;
   background-Image:
   url("/Assets/BackgroundDefault.png");
-  background-Size: 'cover';
-  background-Repeat: 'no-repeat';
+  background-repeat: no-repeat;
+  background-size: cover;
 }
