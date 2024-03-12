@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Location from './locate'
+
 const Weather = () => {
     const [city, setCity] = useState('');
     const [weatherData, setWeatherData] = useState(null);
     const [location, setLocation] = useState(null);
     const fetchData = async () => {
-        try {
+        let {lat, long} = await Location()
+        console.log(lat, long)
+
+        
+        try {  
             const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=ba19cd583718bdfcab8c8c321509eb6b`);
             setWeatherData(response.data);
-            console.log(response.data); //You can see all the weather data in console log
+            //console.log(response.data); //You can see all the weather data in console log
         } catch (error) {
             console.error(error);
         }
@@ -23,7 +29,7 @@ const Weather = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-    fetchData();
+        fetchData();
     };
 
     return (
@@ -49,7 +55,7 @@ const Weather = () => {
                             <p>Weather</p><div className="data"><p>{weatherData.weather[0].description}</p></div>
                         </section>
                         <section className='wind'>
-                        <p>Wind Speed</p><p>{weatherData.wind.speed}m/s</p>
+                            <p>Wind Speed</p><p>{weatherData.wind.speed}m/s</p>
                         </section>
                         <section className='general'>
                             <p>Humidity</p><p>{weatherData.main.humidity}%</p>
