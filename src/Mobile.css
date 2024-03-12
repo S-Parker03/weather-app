@@ -7,9 +7,6 @@
 }
 
 @media (max-width: 360px) {
-    .all {
-        background-color: #566c8e;
-    }
     .loc {
         text-align: center;
     }

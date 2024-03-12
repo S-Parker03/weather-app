@@ -28,6 +28,9 @@ const Weather = () => {
 
     return (
         <div className="all">
+            <div className='divider'>
+                
+            </div>
             <div className="loc">
                 <form onSubmit={handleSubmit}>
                     <input
