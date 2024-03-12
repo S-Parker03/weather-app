@@ -66,3 +66,19 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+/*Styling for map*/
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+#root{
+  height: 100vh;
+}
+
+/*size of map of containr*/
+.leaflet-container{
+  height: 100vh;
+}

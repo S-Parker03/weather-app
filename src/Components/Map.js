@@ -3,8 +3,7 @@ import React from "react";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import { Icon, marker } from "leaflet";
 
-import "./style.css";
-
+import "./mapStyle.css";
 import "leaflet/dist/leaflet.css"
 
 
@@ -36,7 +35,7 @@ export default function App(){
 
   //Creates a new icon
   const markerIcon = new Icon({
-    iconUrl: require("./Assets/marker.png"), //location of the icon
+    iconUrl: require("./marker.png"), //location of the icon
     iconSize: [38, 38] //size of the icon
   });
 

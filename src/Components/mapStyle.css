@@ -10,6 +10,8 @@
 
 /*size of map of containr*/
 .leaflet-container{
-    height: 100vh;
+    margin-left: 10px;
+    height: 70vh;
+    width: 50vh;
 }
 
