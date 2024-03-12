@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Location from './locate'
+import setLocationBar  from './LocationBar';
 
 const Weather = () => {
     const [city, setCity] = useState('');
     const [weatherData, setWeatherData] = useState(null);
     const [location, setLocation] = useState(null);
     const fetchData = async () => {
-        let {lat, long} = await Location()
-        console.log(lat, long)
 
-        
         try {  
-            const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=ba19cd583718bdfcab8c8c321509eb6b`);
+            //setLocation((await Location())
+            let {lat, long} = await Location()
+            //then put lat and long into api
+            //location.lat , location.long
+            const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=3c1d1e99e3dd487e2836737a053ac1e8`);
             setWeatherData(response.data);
+            console.log(weatherData.name)
+            setLocationBar(weatherData.name)
             //console.log(response.data); //You can see all the weather data in console log
         } catch (error) {
             console.error(error);
@@ -21,7 +25,7 @@ const Weather = () => {
     };
     useEffect(() => {
         fetchData();
-    });
+    }, []);
 
     const handleInputChange = (e) => {
         setCity(e.target.value);
@@ -33,9 +37,24 @@ const Weather = () => {
     };
 
     return (
-        <div className="all">
-            <div className='divider'>
-                
+        <>
+        {/* this brakcet shows the location header*/}
+        {weatherData ? 
+            (<>
+            <h1 id="location" className="navBar" >{weatherData.name}</h1>
+            <img src="" alt="downArrow"></img>
+            </>) 
+            : 
+            (
+            <>
+            <h1 id="location" className="navBar" >{"Search for location"}</h1>
+            <img src="" alt="downArrow"></img>
+            </>)}
+
+
+        <div className="all" >
+            
+            <div className='divider'>  
             </div>
             <div className="loc">
                 <form onSubmit={handleSubmit}>
@@ -51,6 +70,7 @@ const Weather = () => {
             <div className="weather">
                 {weatherData ? (
                     <>
+                        {/*we should remove this bottom line*/}
                         <h2>{weatherData.name}</h2>
                         <section className='temperature'>
                             <p>Temperature</p><div className="data"><p>{weatherData.main.temp}°C</p></div>
@@ -77,6 +97,7 @@ const Weather = () => {
                 )}
             </div>
         </div>
+        </>
     );
 };
 export default Weather;

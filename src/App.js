@@ -46,7 +46,7 @@ const App = () => {
 
   return (
     <div className ="day">
-      <LocationBar/>
+      {/*<LocationBar />*/}
       <Weather />
       <Waves />
     </div>

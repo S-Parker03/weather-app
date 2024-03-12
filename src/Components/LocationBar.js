@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-const LocationBar = () =>{
+export default function LocationBar () {
+    /*
+    const [loc, setLoc] = useState({location})
+    useEffect(() => {
+        setLoc(location)
+    }, [])
+    */
+
     return(
         <div className="navBar">
-            <h1 id="location">Location</h1>
+            <h1 id="location">{"lol"}</h1>
             <img src="" alt="downArrow"></img>
         </div>
     )
 
-
 }
-export default LocationBar;
+
+
+ 
