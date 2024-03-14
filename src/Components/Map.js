@@ -1,4 +1,3 @@
-
 import React from "react";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import { Icon, marker } from "leaflet";
@@ -40,7 +39,7 @@ export default function App(){
   });
 
   return(
-    <MapContainer center={[51.51417,-0.11485]} zoom={13}>
+    <MapContainer center={[54.2023,-4.47735]} zoom={5}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
