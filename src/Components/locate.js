@@ -6,7 +6,8 @@ function Location () {
                 position => {
                     const lat = position.coords.latitude;
                     const long = position.coords.longitude;
-                    resolve({lat, long})
+                    
+                    resolve([lat, long])
                 },
                 error => {
                     reject(error);

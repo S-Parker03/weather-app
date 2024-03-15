@@ -34,7 +34,7 @@
 .morning{
   height: 100vh;
   width: 100%;
-  background-Image: url("../public/Assets/backgroundSunset.png");
+  /*background-Image: url("../public/Assets/backgroundSunset.png");*/
   background-size: 100%;
   background-repeat: 'no-repeat';
 }
@@ -42,7 +42,7 @@
 .evening{
   height: 100vh;
   width: 100%;
-  background-Image: url("../public/Assets/backgroundSunset.png");
+  /*background-Image: url("../public/Assets/backgroundSunset.png");*/
   background-size: 100%;
   background-size: cover;
   background-repeat: 'no-repeat';
@@ -51,8 +51,8 @@
 .night{
   height: 100vh;
   width: 100%;
-  background-image: url("../public/Assets/backgroundNight.png");
-  background-size: 100%;
+  /*background-image: url("../public/Assets/backgroundNight.png");
+  background-size: 100%;*/
   background-size: cover;
   background-repeat: 'no-repeat';
 }
@@ -60,9 +60,9 @@
 .day{
   height: 100vh;
   width: 100%;
-  background-Image:
+  /*background-Image:
   url("../public/Assets/backgroundDefault.png");
-  background-size: 100%;
+  background-size: 100%;*/
   background-repeat: no-repeat;
   background-size: cover;
 }

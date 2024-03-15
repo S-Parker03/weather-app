@@ -34,12 +34,16 @@ export default function App(){
   ];
 
   //Creates a new icon
+
   const markerIcon = new Icon({
     iconUrl: require("./marker.png"), //location of the icon
     iconSize: [38, 38] //size of the icon
   });
 
+
   return(
+    
+
     <MapContainer center={[51.51417,-0.11485]} zoom={13}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -51,6 +55,7 @@ export default function App(){
           </Marker>
         ))}
     </MapContainer>
+    
   )
 }
 

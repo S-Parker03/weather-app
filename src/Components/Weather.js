@@ -1,31 +1,67 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Location from './locate'
-import setLocationBar  from './LocationBar';
+import { unstable_renderSubtreeIntoContainer } from 'react-dom';
+
 
 const Weather = () => {
-    const [city, setCity] = useState('');
+    const [city, setCity] = useState(null);
     const [weatherData, setWeatherData] = useState(null);
-    const [location, setLocation] = useState(null);
-    const fetchData = async () => {
 
-        try {  
-            //setLocation((await Location())
-            let {lat, long} = await Location()
-            //then put lat and long into api
-            //location.lat , location.long
-            const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=3c1d1e99e3dd487e2836737a053ac1e8`);
-            setWeatherData(response.data);
-            console.log(weatherData.name)
-            setLocationBar(weatherData.name)
-            //console.log(response.data); //You can see all the weather data in console log
-        } catch (error) {
+    /*
+    const fetchChoicefq = async () => {
+        try {
+            await setWeatherData(axios.get('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/'+city+'?unitGroup=metric&key=SUHHDGG2TPM5TWPVGATWAV4A4&contentType=json'))
+        }
+        catch (error) {
             console.error(error);
         }
-    };
+    }
+    */
+
+
     useEffect(() => {
+        const fetchData = async () => {
+            let data = ""
+            
+            if (!city){
+            let [lat, long] = await Location()
+            console.log("in here")
+            data = axios.get('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/' + lat + "," + long + '?unitGroup=metric&key=SUHHDGG2TPM5TWPVGATWAV4A4&contentType=json')
+            data.then(resp => {
+                setWeatherData(resp)
+                console.log(weatherData)
+                console.log("setting")
+            })
+            .catch(error => {
+                console.error('Error:', error); // Handling any errors that occur
+                });
+            }
+
+            else {
+                try{
+                    data = axios.get('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/'+city+'?unitGroup=metric&key=SUHHDGG2TPM5TWPVGATWAV4A4&contentType=json')
+                    data.then(response => {
+                        setWeatherData(response)
+                    })
+                    .catch(error => {
+                        console.error('Error:', error); // Handling any errors that occur
+                    });
+                }
+                catch{
+                    console.log("headache")
+                }
+
+                }
+        } 
+        console.log(weatherData)
+        console.log("got data")
+        console.log(city)
+
         fetchData();
-    }, []);
+    }, [city]);
+
+    
 
     const handleInputChange = (e) => {
         setCity(e.target.value);
@@ -33,7 +69,7 @@ const Weather = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetchData();
+        
     };
 
     return (
@@ -41,8 +77,8 @@ const Weather = () => {
         {/* this brakcet shows the location header*/}
         {weatherData ? 
             (<>
-            <h1 id="location" className="navBar" >{weatherData.name}</h1>
-            <img src="" alt="downArrow"></img>
+            <h1 id="location" className="navBar" >{ city ? (city) : ("Currect location") }</h1>
+            
             </>) 
             : 
             (
@@ -61,7 +97,7 @@ const Weather = () => {
                     <input
                         type="text"
                         placeholder="Enter city name"
-                        value={city}
+                        
                         onChange={handleInputChange}
                     />
                     <button type="submit">Get Weather</button>
@@ -70,19 +106,16 @@ const Weather = () => {
             <div className="weather">
                 {weatherData ? (
                     <>
-                        {/*we should remove this bottom line*/}
-                        <h2>{weatherData.name}</h2>
                         <section className='temperature'>
-                            <p>Temperature</p><div className="data"><p>{weatherData.main.temp}°C</p></div>
-                            <p>Feels Like</p><div className="data"><p>{weatherData.main.feels_like}°C</p></div>
-                            <p>Weather</p><div className="data"><p>{weatherData.weather[0].description}</p></div>
+                            <div className="data"><p>{"Todays weather description: " + weatherData.data.days[0].description.toString()}</p></div>
+                            <div className="data"><p>{"Temp: " + weatherData.data.days[0].tempmin.toString() + "°C (min) - " + weatherData.data.days[0].tempmax.toString() + "°C (max)"}</p></div>
                         </section>
                         <section className='wind'>
-                            <p>Wind Speed</p><p>{weatherData.wind.speed}m/s</p>
+                            <div className="data"><p>{"Wind Speed (mph): " + weatherData.data.days[0].windspeed.toString()}°C</p></div>
+                            <div className="data"><p>{"Wind Direction (bearing North): " + weatherData.data.days[0].winddir.toString() + "°"}</p></div>
                         </section>
                         <section className='general'>
-                            <p>Humidity</p><p>{weatherData.main.humidity}%</p>
-                            <p>Pressure</p><p>{weatherData.main.pressure}</p>
+                        
                         </section>
                         <section className='waves'>
                             <p></p>
