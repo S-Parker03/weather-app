@@ -77,7 +77,8 @@ const Weather = () => {
         {/* this brakcet shows the location header*/}
         {weatherData ? 
             (<>
-            <h1 id="location" className="navBar" >{ city ? (city) : ("Currect location") }</h1>
+            <h1 id="location" className="navBar" >{ city ? (city) : ("Current location") }</h1>
+            
             
             </>) 
             : 
@@ -106,22 +107,41 @@ const Weather = () => {
             <div className="weather">
                 {weatherData ? (
                     <>
+                        <section className='general'>
+                            <h2>Todays weather description: </h2>
+                            <p className='data'>{ weatherData.data.days[0].description.toString()}</p>
+                            <h2>Chance of Rain: </h2>
+                            <p className='data'>{ weatherData.data.days[0].precipprob.toString() +"%"}</p>
+                            <h2>Visibility: </h2>
+                            <p className='data'>{ weatherData.data.days[0].visibility.toString() + " km"}</p>
+                            <h2>Sunrise: </h2>
+                            <p className='data'>{ weatherData.data.days[0].sunrise.toString().slice(0,5)}</p>
+                            <h2>Sunset: </h2>
+                            <p className='data'>{ weatherData.data.days[0].sunset.toString().slice(0,5)}</p>
+                        </section>
                         <section className='temperature'>
-                            <div className="data"><p>{"Todays weather description: " + weatherData.data.days[0].description.toString()}</p></div>
-                            <div className="data"><p>{"Temp: " + weatherData.data.days[0].tempmin.toString() + "°C (min) - " + weatherData.data.days[0].tempmax.toString() + "°C (max)"}</p></div>
+                            <h2>Temperature: </h2>
+                            <p className='data'>{"" + weatherData.data.days[0].tempmin.toString() + "°C (min) - " + weatherData.data.days[0].tempmax.toString() + "°C (max)"}</p>
+                            <h2>Feels Like: </h2>
+                            <p className='data'>{ weatherData.data.days[0].feelslike.toString() + "°C"}</p>
+                            <h2>UV index: </h2>
+                            <p className='data'>{ weatherData.data.days[0].uvindex.toString()}</p>
                         </section>
                         <section className='wind'>
-                            <div className="data"><p>{"Wind Speed (mph): " + weatherData.data.days[0].windspeed.toString()}°C</p></div>
-                            <div className="data"><p>{"Wind Direction (bearing North): " + weatherData.data.days[0].winddir.toString() + "°"}</p></div>
-                        </section>
-                        <section className='general'>
-                        
+                            <h2>Wind Speed: </h2>
+                            <p className='data'>{weatherData.data.days[0].windspeed.toString()} mph</p>
+                            <h2>Wind Direction: </h2>
+                            <p className='data'>{"(bearing North): " + weatherData.data.days[0].winddir.toString() + "°"}</p>
                         </section>
                         <section className='waves'>
-                            <p></p>
-                            <p></p>
-                            <p></p>
-                            <p></p>
+                            <h2></h2>
+                            <p className='data'></p>
+                            <h2></h2>
+                            <p className='data'></p>
+                            <h2></h2>
+                            <p className='data'></p>
+                            <h2></h2>
+                            <p className='data'></p>
                         </section>
 
                     </>

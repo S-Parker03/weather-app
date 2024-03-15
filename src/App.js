@@ -53,8 +53,8 @@ const App = () => {
     <div className ="day">
       {/*<LocationBar />*/}
       <Weather />
-      <Waves />
       <Map />
+      <Waves />
     </div>
 
     

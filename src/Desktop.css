@@ -22,4 +22,25 @@
     .data {
         color: #B1F2F4;
     }
+
+    .map-container{
+        text-align: center;
+        color: #E1FBFC;
+        font-family: "Istok Web", sans-serif;
+        font-weight: 400;
+        stroke-width: bold;
+        margin-top: 5vh;
+    }
+
+    .navBar{
+        max-width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 7vh;
+        margin-top: 1vh;
+    }
+
+    .day, .night, .evening, .morning{
+        padding-top: 1vw;
+    }
 }
