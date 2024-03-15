@@ -8,8 +8,8 @@
     height: 100vh;
 }
 
-/*size of map of containr*/
+/*Map Container Style*/
 .leaflet-container{
-    height: 10vh;
+    height: 60vh;
+    margin: 5vh;
 }
-
