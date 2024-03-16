@@ -6,20 +6,45 @@
     font-style: normal;
 }
 
-@media (max-width: 360px) {
+@media (max-width: 579px) {
     .loc {
         text-align: center;
     }
-    .weather {
+    .weather{
         text-align: center;
         font-family: "Istok Web", sans-serif;
         color: #E1FBFC;
     }
-    .weather p {
+    .weather p{
         margin: 2px;
     }
+
     .data {
         color: #B1F2F4;
+    }
+
+    .navBar{
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 7vh;
+    }
+
+    .waves{
+        width: 100%;
+        position: fixed;
+        z-index:9999;
+        bottom: -5px;
+      }
+      
+    .backgroundWave{
+        width: 100%;
+        position: fixed;
+        z-index:9998;
+        bottom: 10px;
+    }
+
+    #wave2{
+        bottom: 20px;
     }
 }
 

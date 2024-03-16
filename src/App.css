@@ -13,29 +13,12 @@ html{
   top: 0px;
   padding-left: 2%;
   padding-right: 2%;
-  
 }
 
 .weather{
   display: grid;
 
 }
-
-.waves{
-  width: 100%;
-  position: fixed;
-  top: 85vh;
-  z-index:9999
-
-}
-
-.backgroundWave{
-  width: 100%;
-  position: fixed;
-  top: 80vh;
-  z-index:9998
-}
-
 
 .morning{
   height: auto;
@@ -84,15 +67,20 @@ html{
   height: 100vh;
 }
 
-
-/*size of map of containr
-.leaflet-container{
-  margin-left: 10px;
-  height: 70vh;
-  width: 50vh;
-}*/
-
 .general{
   border-color: black;
   border-width: thick;
+}
+
+.map-container{
+  text-align: center;
+  color: #E1FBFC;
+  font-family: "Istok Web", sans-serif;
+  font-weight: 400;
+  stroke-width: bold;
+  margin-top: 5vh;
+}
+
+input{
+  margin-bottom: 7vh;
 }

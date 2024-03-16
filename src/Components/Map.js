@@ -42,7 +42,7 @@ export default function App(){
 
   return(
     <section className="map-container">
-    <h1>Change Location:</h1>
+    <h1 id="mapTitle">Change Location:</h1>
     <MapContainer center={[54.2023,-4.47735]} zoom={5}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
