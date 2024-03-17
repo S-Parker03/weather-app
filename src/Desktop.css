@@ -15,6 +15,9 @@
         text-align: center;
         font-family: "Istok Web", sans-serif;
         color: #E1FBFC;
+        display: grid;
+        grid-template-rows: 20% 20% 20% 20% 20%;
+        grid-template-columns: 45% 10% 45%;
     }
     .weather p {
         margin: 2px;
@@ -53,4 +56,5 @@
     #wave2{
         bottom: -20px;
     }
+
 }

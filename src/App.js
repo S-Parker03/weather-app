@@ -47,10 +47,10 @@ const App = () => {
     changeBackground();
   }, []);
 
-
+  console.log(background);
   return (
     
-    <div className ="day">
+    <div className={background}>
       {/*<LocationBar />*/}
       <Weather />
       <Map />

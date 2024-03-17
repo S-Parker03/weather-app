@@ -23,27 +23,30 @@ html{
 .morning{
   height: auto;
   width: 100%;
-  /*background-Image: url("../public/Assets/backgroundSunset.png");*/
+  background-Image: url("../public/Assets/backgroundSunset.png");
   background-size: 100%;
-  background-repeat: 'no-repeat';
+  background-repeat: no-repeat;
+  padding-bottom: 20vh;
 }
 
 .evening{
   height: auto;
   width: 100%;
-  /*background-Image: url("../public/Assets/backgroundSunset.png");*/
+  background-Image: url("../public/Assets/backgroundSunset.png");
   background-size: 100%;
   background-size: cover;
-  background-repeat: 'no-repeat';
+  background-repeat: no-repeat;
+  padding-bottom: 20vh;
 }
 
 .night{
   height: auto;
   width: 100%;
-  /*background-image: url("../public/Assets/backgroundNight.png");
-  background-size: 100%;*/
+  background-image: url("../public/Assets/backgroundNight.png");
+  background-size: 100%;
   background-size: cover;
-  background-repeat: 'no-repeat';
+  background-repeat: no-repeat;
+  padding-bottom: 20vh;
 }
 
 .day{
