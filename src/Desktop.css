@@ -16,9 +16,61 @@
         font-family: "Istok Web", sans-serif;
         color: #E1FBFC;
         display: grid;
-        grid-template-rows: 20% 20% 20% 20% 20%;
-        grid-template-columns: 45% 10% 45%;
+        grid-template-rows: auto 5% auto;
+        grid-template-columns: 40% 20% 40%;
+        margin-left: 10%;
+        margin-right: 10%;
     }
+
+    .general{
+        grid-column: 1;
+        grid-row-start: 0;
+        grid-row-end: 1;
+    }
+
+    .temperature{
+        grid-column: 1;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+
+    .wind{
+        grid-column: 3;
+        grid-row-start: 0;
+        grid-row-end: 1;
+    }
+
+    .wavedata{
+        grid-column: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+
+    .bar1{
+        width: auto;
+        height: auto;
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+        grid-row-start: 1;
+        grid-row-end: 2;
+
+    }
+
+    .bar2{
+        width: auto;
+        height: auto;
+        grid-column-start: 2;
+        grid-column-end: 2;
+
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+
+    .bar3, .bar4, .bar5{
+        display: none;
+    }
+    
     .weather p {
         margin: 2px;
     }
@@ -44,9 +96,9 @@
         top: 85vh;
         z-index:9999;
         bottom: -40px;
-      }
+    }
       
-      .backgroundWave{
+    .backgroundWave{
         width: 100%;
         position: fixed;
         top: 80vh;

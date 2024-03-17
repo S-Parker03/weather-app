@@ -119,6 +119,8 @@ const Weather = () => {
                             <h2>Sunset: </h2>
                             <p className='data'>{ weatherData.data.days[0].sunset.toString().slice(0,5)}</p>
                         </section>
+                        <img className='bar1' src='..public/Assets/horizontalBars.png'/>
+                        <img className='bar3' src='..public/Assets/mobileDivider.png'/>
                         <section className='temperature'>
                             <h2>Temperature: </h2>
                             <p className='data'>{"" + weatherData.data.days[0].tempmin.toString() + "°C (min) - " + weatherData.data.days[0].tempmax.toString() + "°C (max)"}</p>
@@ -127,20 +129,23 @@ const Weather = () => {
                             <h2>UV index: </h2>
                             <p className='data'>{ weatherData.data.days[0].uvindex.toString()}</p>
                         </section>
+                        <img className='bar2' src='..public/Assets/verticalBar.png'/>
+                        <img className='bar4' src='..public/Assets/mobileDivider.png'/>
                         <section className='wind'>
                             <h2>Wind Speed: </h2>
                             <p className='data'>{weatherData.data.days[0].windspeed.toString()} mph</p>
                             <h2>Wind Direction: </h2>
                             <p className='data'>{"(bearing North): " + weatherData.data.days[0].winddir.toString() + "°"}</p>
                         </section>
-                        <section className='waves'>
-                            <h2></h2>
+                        <img className='bar5' src='..public/Assets/mobileDivider.png'/>
+                        <section className='wavedata'>
+                            <h2>Wave Heights: </h2>
                             <p className='data'></p>
-                            <h2></h2>
+                            <h2>Wave Directions: </h2>
                             <p className='data'></p>
-                            <h2></h2>
+                            <h2>High Tide: </h2>
                             <p className='data'></p>
-                            <h2></h2>
+                            <h2>Low Tide: </h2>
                             <p className='data'></p>
                         </section>
 
