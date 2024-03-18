@@ -6,7 +6,7 @@
     font-style: normal;
 }
 
-@media (min-width: 580px) {
+@media (min-width: 900px) {
     
     .loc {
         text-align: center;
