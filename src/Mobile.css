@@ -11,12 +11,18 @@
         text-align: center;
     }
     .weather{
-        text-align: center;
         font-family: "Istok Web", sans-serif;
         color: #E1FBFC;
+        display: flex;
+        flex-direction:column ;
+        margin-left: 10%;
+        margin-right: 10%;
+        justify-content: center;
+        align-content: space-between;
     }
-    .weather p{
+    .weather p, h2{
         margin: 2px;
+        text-align: center;
     }
 
     .data {
@@ -45,6 +51,24 @@
 
     #wave2{
         bottom: 20px;
+    }
+
+    .mobileBar1, .mobileBar2, .mobileBar3{
+        width: auto;
+        height: auto;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+
+    .vertBar{
+        display: none;
+    }
+
+    .icon{
+        width: 15%;
+        height: auto;
+        margin-left: 0%;
+        text-align: left;
     }
 }
 
