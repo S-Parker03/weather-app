@@ -11,25 +11,15 @@ export default function App(){
 
   const markers = [
     //Newquay
-    {
-      geocode: [50.40317,-5.06605]
-    },
+    {geocode: [50.40317,-5.06605]},
     //Gower
-    {
-      geocode:[51.59992,-4.13730 ]
-    },
+    {geocode:[51.59992,-4.13730 ]},
     //Croyde
-    {
-      geocode: [51.13034,-4.22154]
-    },
+    {geocode: [51.13034,-4.22154]},
     //Cornwall
-    {
-      geocode: [50.07697,-5.69862]
-    },
+    {geocode: [50.07697,-5.69862]},
     //Berwickshire
-    {
-      geocode: [55.93961,-2.37649]
-    }
+    {geocode: [55.93961,-2.37649]}
   ];
 
   //Creates a new icon
@@ -50,12 +40,21 @@ export default function App(){
         />
 
         {markers.map((marker) => (
-          <Marker position={marker.geocode} icon={markerIcon}>
-          </Marker>
+          <Marker 
+          position={marker.geocode} 
+          icon={markerIcon}
+          eventHandlers={{
+            click: () => {clicked(marker.geocode)}
+          }}
+          ></Marker>
         ))}
     </MapContainer>
     </section>
     
   )
+}
+
+function clicked(geocode){
+  console.log("clicked" + geocode)
 }
 

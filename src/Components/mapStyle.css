@@ -13,3 +13,7 @@
     height: 60vh;
     margin: 5vh;
 }
+
+Marker:hover{
+    transform: scale(1.5,1.5);
+}
