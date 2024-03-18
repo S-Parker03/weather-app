@@ -12,65 +12,97 @@
         text-align: center;
     }
     .weather {
-        text-align: center;
         font-family: "Istok Web", sans-serif;
         color: #E1FBFC;
         display: grid;
-        grid-template-rows: auto 5% auto;
+        grid-template-rows: auto 20% 20% auto auto;
         grid-template-columns: 40% 20% 40%;
-        margin-left: 10%;
-        margin-right: 10%;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+    .weather h2, .weather p{
+        text-align: center;
+    }
+
+    .icon{
+        width: 15%;
+        height: auto;
+        margin-left: 0%;
+        text-align: left;
     }
 
     .general{
         grid-column: 1;
-        grid-row-start: 0;
-        grid-row-end: 1;
+        grid-row-start: 1;
+        grid-row-end: 3;
+
     }
 
     .temperature{
         grid-column: 1;
-        grid-row-start: 2;
-        grid-row-end: 3;
+        grid-row-start: 4;
+        grid-row-end: 4;
+
     }
 
     .wind{
         grid-column: 3;
-        grid-row-start: 0;
+        grid-row-start: 1;
         grid-row-end: 1;
     }
 
     .wavedata{
         grid-column: 3;
-        grid-row-start: 2;
+        grid-row-start: 3;
         grid-row-end: 3;
-    }
-
-    .bar1{
-        width: auto;
-        height: auto;
-        grid-column-start: 1;
-        grid-column-end: 3;
-
-        grid-row-start: 1;
-        grid-row-end: 2;
+        margin-top: auto;
 
     }
 
-    .bar2{
+    
+
+    .vertBar{
         width: auto;
         height: auto;
         grid-column-start: 2;
         grid-column-end: 2;
 
         grid-row-start: 1;
-        grid-row-end: 3;
+        grid-row-end: 5;
+
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .bar3, .bar4, .bar5{
+    .mobileBar1{
+        width: auto;
+        height: auto;
+        grid-column-start: 1;
+        grid-column-end: 1;
+
+        grid-row-start: 3;
+        grid-row-end: 3;
+
+        margin: auto;
+    }
+
+    .mobileBar2{
+        width: auto;
+        height: auto;
+        grid-column-start: 3;
+        grid-column-end: 3;
+
+        grid-row-start: 2;
+        grid-row-end: 2;  
+        
+        margin: auto;
+    }
+
+    .mobileBar3{
         display: none;
     }
-    
+
     .weather p {
         margin: 2px;
     }

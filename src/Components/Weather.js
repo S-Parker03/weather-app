@@ -108,6 +108,7 @@ const Weather = () => {
                 {weatherData ? (
                     <>
                         <section className='general'>
+                            <img className='icon' src='/Assets/cloudicon.png'/>
                             <h2>Todays weather description: </h2>
                             <p className='data'>{ weatherData.data.days[0].description.toString()}</p>
                             <h2>Chance of Rain: </h2>
@@ -119,9 +120,9 @@ const Weather = () => {
                             <h2>Sunset: </h2>
                             <p className='data'>{ weatherData.data.days[0].sunset.toString().slice(0,5)}</p>
                         </section>
-                        <img className='bar1' src='..public/Assets/horizontalBars.png'/>
-                        <img className='bar3' src='..public/Assets/mobileDivider.png'/>
+                        <img className='mobileBar1' src='/Assets/mobileDivider.png'/>
                         <section className='temperature'>
+                            <img className='icon' src='/Assets/thermometer.png'/>
                             <h2>Temperature: </h2>
                             <p className='data'>{"" + weatherData.data.days[0].tempmin.toString() + "°C (min) - " + weatherData.data.days[0].tempmax.toString() + "°C (max)"}</p>
                             <h2>Feels Like: </h2>
@@ -129,16 +130,18 @@ const Weather = () => {
                             <h2>UV index: </h2>
                             <p className='data'>{ weatherData.data.days[0].uvindex.toString()}</p>
                         </section>
-                        <img className='bar2' src='..public/Assets/verticalBar.png'/>
-                        <img className='bar4' src='..public/Assets/mobileDivider.png'/>
+                        <img className='vertBar' src='/Assets/verticalBar.png'/>
+                        <img className='mobileBar2' src='/Assets/mobileDivider.png'/>
                         <section className='wind'>
+                            <img className='icon' src='/Assets/windicon.png'/>
                             <h2>Wind Speed: </h2>
                             <p className='data'>{weatherData.data.days[0].windspeed.toString()} mph</p>
                             <h2>Wind Direction: </h2>
                             <p className='data'>{"(bearing North): " + weatherData.data.days[0].winddir.toString() + "°"}</p>
                         </section>
-                        <img className='bar5' src='..public/Assets/mobileDivider.png'/>
+                        <img className='mobileBar3' src='/Assets/mobileDivider.png'/>
                         <section className='wavedata'>
+                            <img className='icon' src='/Assets/waveicon.png'/>
                             <h2>Wave Heights: </h2>
                             <p className='data'></p>
                             <h2>Wave Directions: </h2>
