@@ -16,7 +16,7 @@
         font-family: "Istok Web", sans-serif;
         color: #E1FBFC;
         display: grid;
-        grid-template-rows: 25% 20% 20% 25% 25%;
+        grid-template-rows: 25% 15% 15% 25% 25%;
         grid-template-columns: auto 10vw auto;
         margin-left: 15%;
         float: left;
