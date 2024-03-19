@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useState } from "react";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import { Icon, marker } from "leaflet";
 
@@ -6,9 +6,9 @@ import "./mapStyle.css";
 import "leaflet/dist/leaflet.css"
 
 
-//is it possible to make user location center?
-export default function App(){
 
+//is it possible to make user location center?
+export default function Map({sendDataToWeather}){
   const markers = [
     //Newquay
     {geocode: [50.40317,-5.06605]},
@@ -44,7 +44,7 @@ export default function App(){
           position={marker.geocode} 
           icon={markerIcon}
           eventHandlers={{
-            click: () => {clicked(marker.geocode)}
+            click: () => {click(marker.geocode)}
           }}
           ></Marker>
         ))}
@@ -52,9 +52,12 @@ export default function App(){
     </section>
     
   )
+
+  function click(geocode){
+    sendDataToWeather(geocode);
+    console.log("sent data");
+  }
+  
 }
 
-function clicked(geocode){
-  console.log("clicked" + geocode)
-}
 

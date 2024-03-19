@@ -53,7 +53,6 @@ const App = () => {
     <div className={background}>
       {/*<LocationBar />*/}
       <Weather />
-      <Map />
       <Waves />
     </div>
 

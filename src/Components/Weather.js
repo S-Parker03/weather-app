@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Location from './locate'
+import Location from './locate';
+import Map from "./Map";
 import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 
 
 const Weather = () => {
     const [city, setCity] = useState(null);
     const [weatherData, setWeatherData] = useState(null);
+    const [latLong, setLatLong] = useState(null);
 
     /*
     const fetchChoicefq = async () => {
@@ -61,7 +63,12 @@ const Weather = () => {
         fetchData();
     }, [city]);
 
-    
+
+    const handleDataFromMap = (data) =>{
+        console.log("recieved data");
+        console.log(data);
+        setLatLong(data);
+    }
 
     const handleInputChange = (e) => {
         setCity(e.target.value);
@@ -158,6 +165,7 @@ const Weather = () => {
                 )}
             </div>
         </div>
+        <Map sendDataToWeather={handleDataFromMap}/>
         </>
     );
 };
