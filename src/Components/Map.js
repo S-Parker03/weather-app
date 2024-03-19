@@ -5,10 +5,10 @@ import MarkerClusterGroup from "react-leaflet-cluster";
 import "./mapStyle.css";
 import "leaflet/dist/leaflet.css"
 
-
-
-//is it possible to make user location center?
+/* This function */
 export default function Map({sendDataToWeather}){
+
+  //List containing the geocode of the locations available for the user to choose
   const markers = [
     {geocode: [53.85216,-3.04027]}, //Blackpool
     {geocode: [50.80170,-1.08720]}, //Portsmouth
@@ -19,33 +19,41 @@ export default function Map({sendDataToWeather}){
     {geocode: [50.07697,-5.69862]}  //Cornwall
   ];
 
+  //Geocode of the best location for surfing (ranked 1st)
   const firstPlace = [
     {geocode: [50.40317,-5.06605]} //Newquay
   ]
+
+  //Geocode of the second best location for surfing (ranked 2nd)
   const secondPlace = [
     {geocode:[51.59992,-4.13730 ]}, //Gower
   ]
 
+  //Geocode of the third best location for surfing (ranked 3rd)
   const thirdPlace = [
     {geocode: [55.93961,-2.37649]} //Berwickshire
   ]
 
+  //Icon for normal locations (not ranked)
   const markerIcon = new Icon({
-    iconUrl: require("./Map/marker.png"), //location of the icon
-    iconSize: [38, 38] //size of the icon
+    iconUrl: require("./Map/marker.png"), //Image location
+    iconSize: [38, 38] //Size of Icon
     
   });
 
+  //Icon for best surfing location (ranked 1st)
   const firstIcon = new Icon({
-    iconUrl: require("./Map/first.png"),
-    iconSize: [38, 38]
+    iconUrl: require("./Map/first.png"), //Image location
+    iconSize: [38, 38] //Size of Icon
   });
 
+  //Icon for second best surfing location (ranked 2nd)
   const secondIcon = new Icon({
-    iconUrl: require("./Map/second.png"),
-    iconSize: [38, 38]
+    iconUrl: require("./Map/second.png"), //Image location
+    iconSize: [38, 38] //Size of Icon
   });
 
+  //Icon for  third best surfing location (ranked 3rd)
   const thirdIcon = new Icon({
     iconUrl: require("./Map/third.png"),
     iconSize: [38, 38]
@@ -53,43 +61,51 @@ export default function Map({sendDataToWeather}){
 
 
   return(
+
     <section className="map-container">
     <h1 id="mapTitle">Change Location:</h1>
     <MapContainer center={[54.2023,-4.47735]} zoom={5}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
+        />  
+        {/* MarkerClusterGroup will cluster normal markers together to make the map less clustered */}
+        <MarkerClusterGroup> 
 
-        <MarkerClusterGroup>
+          {/*This will add all the normal markers to the map */}
           {markers.map((marker) => (
             <Marker 
-            position={marker.geocode} 
-            icon={markerIcon}
+            position={marker.geocode} //Position of marker is geocode specified in markers
+            icon={markerIcon} //Image of normal Icon
             eventHandlers={{
-              click: () => {click(marker.geocode)}
+              click: () => {click(marker.geocode)} //When marker is clicked, click() function is called
             }}>
               {/* <Popup className={"wrapper"}> {marker.Popup} </Popup> */}
             </Marker>
           ))}
         </MarkerClusterGroup>
-
+        
+        {/*This will add the best surfing location marker to the map */}
         {firstPlace.map((marker) => (
           <Marker
-          position={marker.geocode}
+          position={marker.geocode} //Position of marker is geocode specified in firstPlace
           icon={firstIcon}
           eventHandlers={{
             click: () => {click(marker.geocode)},
 
-            // mouseover: () =>  {hover(marker.geocode)}
+            // mouseover: () =>  {
+            //   firstIcon.iconSize = [1,1];
+            //   console.log("hovered")
+            // }
           }}>
             {/* <Popup className={"wrapper"}> {marker.Popup} </Popup> */}
           </Marker>
         ))}
 
+        {/*This will add the second best surfing location marker to the map */}
         {secondPlace.map((marker) => (
           <Marker
-          position={marker.geocode}
+          position={marker.geocode} //Position of marker is geocode specified in secondPlace
           icon={secondIcon}
           eventHandlers={{
             click: () => {click(marker.geocode)}
@@ -98,12 +114,13 @@ export default function Map({sendDataToWeather}){
           </Marker>
         ))}
 
+        {/*This will add the third best surfing location marker to the map */}
         {thirdPlace.map((marker) => (
           <Marker
-          position={marker.geocode}
+          position={marker.geocode} //Position of marker is geocode specified in thirdPlace
           icon={thirdIcon}
           eventHandlers={{
-            click: () => {click(marker.geocode)}
+            click: () => {click(marker.geocode, marker)}
           }}>
             {/* <Popup className={"wrapper"}> {marker.Popup} </Popup> */}
           </Marker>
@@ -113,11 +130,11 @@ export default function Map({sendDataToWeather}){
     
   )
 
+  //Function triggered when a marker is clicked
   function click(geocode){
-    sendDataToWeather(geocode);
-    console.log("sent data");
+    sendDataToWeather(geocode); //Sending geocode data to weather component
+    console.log("sent data"); //Logging data sending
   }
-  
 }
 
 
