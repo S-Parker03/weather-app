@@ -1,6 +1,6 @@
-import React,{ useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup} from "react-leaflet";
-import { Icon, marker } from "leaflet";
+import { Icon, marker} from "leaflet";
+import MarkerClusterGroup from "react-leaflet-cluster";
 
 import "./mapStyle.css";
 import "leaflet/dist/leaflet.css"
@@ -61,16 +61,18 @@ export default function Map({sendDataToWeather}){
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {markers.map((marker) => (
-          <Marker 
-          position={marker.geocode} 
-          icon={markerIcon}
-          eventHandlers={{
-            click: () => {click(marker.geocode)}
-          }}>
-            {/* <Popup className={"wrapper"}> {marker.Popup} </Popup> */}
-          </Marker>
-        ))}
+        <MarkerClusterGroup>
+          {markers.map((marker) => (
+            <Marker 
+            position={marker.geocode} 
+            icon={markerIcon}
+            eventHandlers={{
+              click: () => {click(marker.geocode)}
+            }}>
+              {/* <Popup className={"wrapper"}> {marker.Popup} </Popup> */}
+            </Marker>
+          ))}
+        </MarkerClusterGroup>
 
         {firstPlace.map((marker) => (
           <Marker
