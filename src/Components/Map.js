@@ -5,11 +5,25 @@ import MarkerClusterGroup from "react-leaflet-cluster";
 import "./mapStyle.css";
 import "leaflet/dist/leaflet.css"
 
-/* This function */
+/********************************************************************* 
+This function displays a map with the surfing locations 
+that the user can choose within the Uk. It allows the user to click
+on a marker to change destination.
+*********************************************************************/
+
 export default function Map({sendDataToWeather}){
 
   //List containing the geocode of the locations available for the user to choose
   const markers = [
+    {geocode: [54.58250,-0.97354], city: 'Saltburn-by-the-Sea'},
+    {geocode: [50.71666,-3.53333], city: 'Exeter'},
+    {geocode: [50.34453,-5.15437], city: 'Perranporth'},
+    {geocode: [51.53840, 0.69270], city: 'Southend-on-Sea'},
+    {geocode: [51.08172, 1.18031], city: 'Folkestone'},
+    {geocode: [50.76803, 0.29047], city: 'Eastbourne'},
+    {geocode: [50.81424, -0.3711], city: 'Worthing'},
+    {geocode: [50.72490, -1.9778], city: 'Poole'},
+    {geocode: [50.60697, -2.4555], city: 'Weymouth'},
     {geocode: [53.85216,-3.04027], city: 'Blackpool'},
     {geocode: [50.80170,-1.08720], city: 'Portsmouth'},
     {geocode: [50.83140,-0.13823], city: 'Brighton'},
@@ -21,7 +35,7 @@ export default function Map({sendDataToWeather}){
 
   //Geocode of the best location for surfing (ranked 1st)
   const firstPlace = [
-    {geocode: [50.40317,-5.06605], city: "Newquay"}
+    {geocode: [50.41358,-5.08219], city: "Newquay"}
   ]
 
   //Geocode of the second best location for surfing (ranked 2nd)
@@ -80,7 +94,6 @@ export default function Map({sendDataToWeather}){
             eventHandlers={{
               click: () => {click(marker.geocode, marker.city)} //When marker is clicked, click() function is called
             }}>
-              {/* <Popup className={"wrapper"}> {marker.Popup} </Popup> */}
             </Marker>
           ))}
         </MarkerClusterGroup>
@@ -98,7 +111,7 @@ export default function Map({sendDataToWeather}){
             //   console.log("hovered")
             // }
           }}>
-            {/* <Popup className={"wrapper"}> {marker.Popup} </Popup> */}
+            
           </Marker>
         ))}
 
@@ -110,7 +123,7 @@ export default function Map({sendDataToWeather}){
           eventHandlers={{
             click: () => {click(marker.geocode, marker.city)}
           }}>
-            {/* <Popup className={"wrapper"}> {marker.Popup} </Popup> */}
+            
           </Marker>
         ))}
 
@@ -122,7 +135,7 @@ export default function Map({sendDataToWeather}){
           eventHandlers={{
             click: () => {click(marker.geocode, marker.city)}
           }}>
-            {/* <Popup className={"wrapper"}> {marker.Popup} </Popup> */}
+            
           </Marker>
         ))}
     </MapContainer>

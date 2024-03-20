@@ -66,8 +66,6 @@
 
     }
 
-    
-
     .vertBar{
         width: auto;
         height: auto;
@@ -160,7 +158,7 @@
         float: left;
     }
     .map-container{
-        width: 25%;
+        width: 20%;
         margin-left: auto;
         margin-right: auto ;
     }
@@ -169,6 +167,7 @@
     }
 
     .weather{
+        margin-left: 10%;
         margin-right: 5%;
     }
 }
@@ -186,10 +185,9 @@
     }
 }
 
-
 @media(max-height: 600px){
     .vertBar{
         display: none;
         grid: none;
     }
-}
+} 
