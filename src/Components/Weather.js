@@ -91,7 +91,7 @@ const Weather = () => {
                         
                         onChange={handleInputChange}
                     />
-                    <button type="submit">Get Weather</button>
+                    <button type="submit" id="submit">Get Weather</button>
                 </form>
             </div>
             <div className="weather">
