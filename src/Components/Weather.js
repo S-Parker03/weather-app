@@ -8,66 +8,49 @@ import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 const Weather = () => {
     const [city, setCity] = useState(null);
     const [weatherData, setWeatherData] = useState(null);
-    const [latLong, setLatLong] = useState(null);
 
-    /*
-    const fetchChoicefq = async () => {
-        try {
-            await setWeatherData(axios.get('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/'+city+'?unitGroup=metric&key=SUHHDGG2TPM5TWPVGATWAV4A4&contentType=json'))
-        }
-        catch (error) {
-            console.error(error);
-        }
-    }
-    */
-
-
+    //Use Effect to refresh data depending on User location or chosen city
     useEffect(() => {
-        const fetchData = async () => {
-            let data = ""
-            
-            if (!city){
-            let [lat, long] = await Location()
-            console.log("in here")
-            data = axios.get('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/' + lat + "," + long + '?unitGroup=metric&key=SUHHDGG2TPM5TWPVGATWAV4A4&contentType=json')
-            data.then(resp => {
-                setWeatherData(resp)
-                console.log(weatherData)
-                console.log("setting")
-            })
-            .catch(error => {
-                console.error('Error:', error); // Handling any errors that occur
-                });
-            }
 
+        const fetchData = async () => {
+            let data = ""  
+
+            if (!city){
+
+                let [lat, long] = await Location()
+                data = axios.get('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/' + lat + "," + long + '?unitGroup=metric&key=SUHHDGG2TPM5TWPVGATWAV4A4&contentType=json')
+                data.then(resp => {  
+                    setWeatherData(resp)
+                    })
+                .catch(error => {
+                    console.error('Error:', error); 
+                    });
+                }
             else {
                 try{
+
                     data = axios.get('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/'+city+'?unitGroup=metric&key=SUHHDGG2TPM5TWPVGATWAV4A4&contentType=json')
                     data.then(response => {
                         setWeatherData(response)
                     })
                     .catch(error => {
-                        console.error('Error:', error); // Handling any errors that occur
+                         
                     });
                 }
                 catch{
-                    console.log("headache")
+                    
+                    console.error("Nyan :3, BIG Mistake ( ´◔ ω◔`) ");
                 }
 
                 }
         } 
-        console.log(weatherData)
-        console.log("got data")
-        console.log(city)
-
         fetchData();
+
     }, [city]);
 
 
     const handleDataFromMap = (data) =>{
-        console.log("recieved data");
-        console.log(data);
-        setLatLong(data);
+        setCity(data[1])
     }
 
     const handleInputChange = (e) => {

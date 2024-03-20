@@ -1,6 +1,5 @@
 import React from 'react';
 import Weather from './Components/Weather';
-import LocationBar from './Components/LocationBar';
 import Waves from './Components/Waves';
 import Map from './Components/Map';
 
