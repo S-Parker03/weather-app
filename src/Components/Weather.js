@@ -8,24 +8,33 @@ import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 const Weather = () => {
     const [city, setCity] = useState(null);
     const [weatherData, setWeatherData] = useState(null);
+    const [waveData, setWaveData] = useState(null);
+
 
     //Use Effect to refresh data depending on User location or chosen city
     useEffect(() => {
 
         const fetchData = async () => {
-            let data = ""  
+            let data = ""
+            let wData = ""
 
-            if (!city){
+            if (!city) {
 
                 let [lat, long] = await Location()
                 data = axios.get('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/' + lat + "," + long + '?unitGroup=metric&key=SUHHDGG2TPM5TWPVGATWAV4A4&contentType=json')
-                data.then(resp => {  
+                data.then(resp => {
                     setWeatherData(resp)
-                    })
-                .catch(error => {
-                    console.error('Error:', error); 
+                })
+                    .catch(error => {
+                        console.error('Error:', error);
                     });
-                }
+                wData = axios.get('https://marine-api.open-meteo.com/v1/marine?latitude=' + lat + '&longitude=' + long + '&current=wave_height,wave_direction')
+                wData.then(resp2 => {
+                    setWaveData(resp2)
+                }).catch(error => {
+                    console.error('Error:', error);
+                });
+            }
             else {
                 try{
 
@@ -132,8 +141,8 @@ const Weather = () => {
                         <img className='mobileBar3' src='/Assets/mobileDivider.png'/>
                         <section className='wavedata'>
                             <img className='icon' src='/Assets/waveicon.png'/>
-                            <h2>Wave Heights: </h2>
-                            <p className='data'></p>
+                            <h2>Wave Heights:</h2>
+                            <p className='data'>{waveData.data.wave_height.toString()}</p>
                             <h2>Wave Directions: </h2>
                             <p className='data'></p>
                             <h2>High Tide: </h2>
