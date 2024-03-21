@@ -142,9 +142,9 @@ const Weather = () => {
                         <section className='wavedata'>
                             <img className='icon' src='/Assets/waveicon.png'/>
                             <h2>Wave Heights:</h2>
-                            <p className='data'>{waveData.data.wave_height.toString()} m</p>
+                            <p className='data'>{waveData == null ? 0 : waveData.data.wave_height.toString()} m</p>
                             <h2>Wave Directions: </h2>
-                            <p className='data'>{waveData.data.wave_direction.toString()} °</p>
+                            <p className='data'>{waveData == null ? 0 : waveData.data.wave_direction.toString()} °</p>
                             <h2>High Tide: </h2>
                             <p className='data'></p>
                             <h2>Low Tide: </h2>
