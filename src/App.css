@@ -128,3 +128,20 @@ h1{
 ::-webkit-scrollbar-thumb:hover {
   background: #9cd6d8;
 }
+
+
+input{
+  background-color:#5F8889;
+  border-color:#E1FBFC;
+  border-width: 4px;
+  border-radius: 5px;
+  border-style:solid;
+  color: #ffffff;
+  font-family: "Istok Web", sans-serif;
+  width: 20%;
+}
+
+::placeholder{
+  color: #ffffff;
+  font-family: "Istok Web", sans-serif;
+}

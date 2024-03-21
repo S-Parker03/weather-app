@@ -10,8 +10,9 @@
     
     .loc {
         text-align: center;
-        display: none;
+        
     }
+
     .weather {
         font-family: "Istok Web", sans-serif;
         color: #E1FBFC;
